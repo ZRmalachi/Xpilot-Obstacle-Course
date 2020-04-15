@@ -1,4 +1,4 @@
-# Welcome to my Project Site!
+# Xpilot Obstacle Course Project
 
 ## Basic Project Description
 For my Xpilot-AI project I am planning on creating an obstacle course or maze that a Genetic Algorithm will learn how to navigate while carrying the ball from Capture the Flag without crashing or dropping the ball. I will first create a production system to progress through the course and then use a GA to learn the parameters. 
