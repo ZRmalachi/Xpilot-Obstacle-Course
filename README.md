@@ -1,3 +1,4 @@
+<title>Xpilot-AI Obstacle Course</title>
 ## Welcome to my Project Site!
 
 
@@ -7,4 +8,4 @@ I plan on having different checkpoints set up for the agent to try to reach whic
 
 I’m thinking of evaluating fitness by how many checkpoints it hits, how close it gets to the next checkpoint, and will possibly add some evaluation of the time it takes to complete to try to make it go through as quickly as possible.
 
-* -Riah*
+*-Riah*
