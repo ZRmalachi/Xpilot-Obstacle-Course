@@ -1,37 +1,10 @@
-## Welcome to GitHub Pages
+## Welcome to my Project Site!
 
-You can use the [editor on GitHub](https://github.com/ZRmalachi/Xpilot-Obstacle-Course/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+For my Xpilot-AI project I am planning on creating an obstacle course or maze that a Genetic Algorithm will then learn how to navigate while carrying the ball from Capture the Flag without crashing or dropping the ball. I will first create a production system to progress through the course and then use a GA to learn the parameters. 
 
-### Markdown
+I plan on having different checkpoints set up for the agent to try to reach which will lead the agent through the course. Or, if I do a maze, it will just have an endpoint the agent needs to reach. I’m not sure how well it will learn a maze, so I will likely just stick to the obstacle course idea, I will do a bit of research into xpilot mazes to see if anything similar has been done before. 
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+I’m thinking of evaluating fitness by how many checkpoints it hits, how close it gets to the next checkpoint, and will possibly add some evaluation of the time it takes to complete to try to make it go through as quickly as possible.
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/ZRmalachi/Xpilot-Obstacle-Course/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+* -Riah*
