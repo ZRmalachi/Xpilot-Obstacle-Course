@@ -1,4 +1,3 @@
-<title>Xpilot-AI Obstacle Course</title>
 ## Welcome to my Project Site!
 
 
