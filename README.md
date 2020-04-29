@@ -23,7 +23,11 @@ Finally I will run the GA to train the agent and see how well what I decided on 
 ## Things I Still Need to Decide On
 At this point I'm still not sure how I'm going to calculate fitness, nor how long the fitness will run for. I'm going back and forth about whether I should have the fitness end if the agent drops the ball or if I should give the agent the ability to pick the ball back up and continue.
 
+## Progress Update 4/29/20
+I have finalized the first version of the map I intend to use for my obstacle course. At this point the next major step is to get my production system working. To first test my production system I will use a simple map that doesn't have obstacles yet to make sure the system functions properlly in avoiding walls and attaching to the ball. At this point I believe I know what my fitness function will be, so once I have the production system complete, I will determine what the chromosome will be and begin the training of the Agent.
 
+Here is an image of the map as it is seen in the mapedit program. The agent spawns at the base on the bottom right corner of the map, right next to the ball as the intent is not for the agent to have to track down the ball. In the upper left corner is the destination the agent is trying to get to. Currently the destination is represented by the red square but in the code it will just be a square of coordinates the agent needs to reach. 
+![map image](https://user-images.githubusercontent.com/63681412/80630848-d973fd80-8a22-11ea-9855-871570bc5760.png)
 
 
 *-Riah*
