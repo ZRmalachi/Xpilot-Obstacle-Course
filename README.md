@@ -115,7 +115,9 @@ This creates a 38 bit chromosome, which is quite managable.
 For the GA I used a population of 50 running for 50 generations. I used a mutate chance of 1/100 . Crossover was done with single point crossover.
 
 ## Final Result
-<video src="Xpilot Obstacle Course Agent.mp4" width="320" height="200" controls preload></video>
+Click Here to see video
+
+[![IMAGE ALT TEXT HERE](https://user-images.githubusercontent.com/63681412/80630848-d973fd80-8a22-11ea-9855-871570bc5760.png)](https://youtu.be/o7ZtVeYpurQ)
 
 The final chromosome learned is 11011010001001111100011101110011000100.
 Which is converted into the parameter values (in order as listed in table):  14, 11, 64, 496, 48, 368, 96, 4
