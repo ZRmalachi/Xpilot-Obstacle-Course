@@ -26,8 +26,9 @@ At this point I'm still not sure how I'm going to calculate fitness, nor how lon
 ## Progress Update 4/29/20
 I have finalized the first version of the map I intend to use for my obstacle course. At this point the next major step is to get my production system working. To first test my production system I will use a simple map that doesn't have obstacles yet to make sure the system functions properlly in avoiding walls and attaching to the ball. At this point I believe I know what my fitness function will be, so once I have the production system complete, I will determine what the chromosome will be and begin the training of the Agent.
 
-Here is an image of the map as it is seen in the mapedit program. The agent spawns at the base on the bottom right corner of the map, right next to the ball as the intent is not for the agent to have to track down the ball. In the upper left corner is the destination the agent is trying to get to. Currently the destination is represented by the red square but in the code it will just be a square of coordinates the agent needs to reach. 
-![map image](https://user-images.githubusercontent.com/63681412/80630848-d973fd80-8a22-11ea-9855-871570bc5760.png)
+Here is an image of the map as it is seen in the mapedit program. The agent spawns at the base on the bottom right corner of the map, right next to the ball as the intent is not for the agent to have to track down the ball. In the upper left corner is the destination the agent is trying to get to. Currently the destination is represented by the red square but in the code it will just be a square of coordinates the agent needs to reach.
+
+![Map Image](https://user-images.githubusercontent.com/63681412/81836278-42726f80-9511-11ea-9a28-48aa55d9e576.png)
 
 ## Progress Update 5/6/20
 With the production system complete and the chromosome determined, it is now time to begin running the genetic algorithm to train the production system parameters. The biggest issue I've been working to solve is how to get the ball to respawn once the agent dies and respawns. I have solved this issue by turning teams on and assigning the ball to the opponent team so the game recognizes it as a "capture the flag" game so the ball respawns when the team (the agent) dies. With this sorted out training can begin. 
@@ -117,7 +118,7 @@ For the GA I used a population of 50 running for 50 generations. I used a mutate
 ## Final Result
 Click Here to see video
 
-[![IMAGE ALT TEXT HERE](https://user-images.githubusercontent.com/63681412/80630848-d973fd80-8a22-11ea-9855-871570bc5760.png)](https://youtu.be/o7ZtVeYpurQ)
+[![Map Image](https://user-images.githubusercontent.com/63681412/81836278-42726f80-9511-11ea-9a28-48aa55d9e576.png)](https://youtu.be/o7ZtVeYpurQ)
 
 The final chromosome learned is 11011010001001111100011101110011000100.
 Which is converted into the parameter values (in order as listed in table):  14, 11, 64, 496, 48, 368, 96, 4
