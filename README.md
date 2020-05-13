@@ -29,5 +29,95 @@ I have finalized the first version of the map I intend to use for my obstacle co
 Here is an image of the map as it is seen in the mapedit program. The agent spawns at the base on the bottom right corner of the map, right next to the ball as the intent is not for the agent to have to track down the ball. In the upper left corner is the destination the agent is trying to get to. Currently the destination is represented by the red square but in the code it will just be a square of coordinates the agent needs to reach. 
 ![map image](https://user-images.githubusercontent.com/63681412/80630848-d973fd80-8a22-11ea-9855-871570bc5760.png)
 
+## Progress Update 5/6/20
+With the production system complete and the chromosome determined, it is now time to begin running the genetic algorithm to train the production system parameters. The biggest issue I've been working to solve is how to get the ball to respawn once the agent dies and respawns. I have solved this issue by turning teams on and assigning the ball to the opponent team so the game recognizes it as a "capture the flag" game so the ball respawns when the team (the agent) dies. With this sorted out training can begin. 
+
+### Production system
+```
+//sets power relative to speed
+		setPower(minPower+(selfSpeed()*1.25));
+
+		//turning rules
+		if (selfSpeed() > brakeSpeed){
+			turnToDeg(tracking+180);
+		}else if (rightWall < wallsCloseR){
+			turnLeft(1);
+		}else if (frontWall < wallsCloseF && rightWall < leftWall){
+			turnLeft(1);
+		}else if (frontWall < wallsCloseF){
+			turnRight(1);
+		}else if (leftWall < wallsCloseL){
+			turnRight(1);
+		}else if (trackWall < wallsCloseT && rightWall < leftWall){
+			turnToDeg(tracking-180);
+		}else if (trackWall < wallsCloseT){
+			turnToDeg(tracking+180);
+		}else{
+			//begin turning towards goal
+			double x1 = (double) selfRadarX();
+			double y1 = (double) selfRadarY();
+			double x2 = goalX;
+			double y2 = goalY;
+			double dx = Math.abs(x2-x1);
+			double dy = Math.abs(y2-y1);
+
+			if(x2>x1 && y2>y1){  //goal is upper right of current position
+				turnToDeg(radToDeg(Math.atan((dy)/(dx))));
+			}else if(x2>x1 && y2<y1){  //goal is below right of current position
+				turnToDeg(360-radToDeg(Math.atan((dy)/(dx))));
+			}else if(x2<x1 && y2<y1){  //goal is below left of current position
+				turnToDeg(180+radToDeg(Math.atan((dy)/(dx))));
+			}else if(x2<x1 && y2>y1){  //goal is upper left of current position
+				turnToDeg(180-radToDeg(Math.atan((dy)/(dx))));
+			}
+		}
+
+		//thrusting rules
+		if (selfSpeed() > brakeSpeed && heading > tracking+150 && heading < tracking+210){
+			thrust(1);
+		}else if (minBackArc < wallsCloseB){
+			thrust(1);
+		}else if (heading > tracking+150 && heading < tracking+210){
+			thrust(1);
+		}else if (selfSpeed() > maxSpeed){
+			thrust(0);
+		}else if (rightWall < wallsCloseR){
+			thrust(0);
+		}else if (frontWall < wallsCloseF){
+			thrust(0);
+		}else if (leftWall < wallsCloseL){
+			thrust(0);
+		}else{
+
+			thrust(1);
+		}
+
+```
+
+
+### Chromosome
+For the chromosome I decided to have 8 parameters for the GA to learn;
+
+| Parameter     | Bits Used |  Bit Values   |    Function   | Parameter Values |                  Parameter Description               |
+| ------------- | --------- | ------------- | ------------- | ---------------- | ---------------------------------------------------- |
+| Max Speed     |    4      | 0-15          |     +1        |     1-16         | Max speed the agent will go                          |
+| Brake Speed   |    4      | 0-15          |     +1        |     1-16         | Once going above this speed, the agent brakes        |
+| WallsCloseR   |    5      | 0-31          |     x16       |     0-496        | Distance a wall to the right is considered close     |
+| WallsCloseL   |    5      | 0-31          |     x16       |     0-496        | Distance a wall to the left is considered close      |
+| WallsCloseB   |    5      | 0-31          |     x16       |     0-496        | Distance a wall behind is considered close           |
+| WallsCloseF   |    5      | 0-31          |     x16       |     0-496        | Distance a wall in front is considered close         |
+| WallsCloseT   |    5      | 0-31          |     x16       |     0-496        | Distance a wall being tracked to is considered close |
+| Min Power     |    5      | 0-31          |               |     0-31         | Minimum thrusting power                              |
+
+This creates a 38 bit chromosome, which is quite managable. 
+
+### GA
+For the GA I used a population of 50 running for 50 generations. I used a mutate chance of 1/100 . Crossover was done with single point crossover.
+
+## Final Result
+<video src="Xpilot Obstacle Course Agent.mp4" width="320" height="200" controls preload></video>
+
+The final chromosome learned is 11011010001001111100011101110011000100.
+Which is converted into the parameter values (in order as listed in table):  14, 11, 64, 496, 48, 368, 96, 4
 
 *-Riah*
